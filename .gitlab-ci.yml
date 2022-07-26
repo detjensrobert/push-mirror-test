@@ -4,6 +4,6 @@ stages:          # List of stages for jobs, and their order of execution
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
   script:
-    - echo "Testing ci triggering for a second time..."
-    - sleep 5
-    - echo "It worked!"
+    - echo "Whats in the file?"
+    - echo "-----"
+    - cat test

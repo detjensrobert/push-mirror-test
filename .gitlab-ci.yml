@@ -1,5 +1,6 @@
 stages:          # List of stages for jobs, and their order of execution
   - build
+  - deploy
 
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
@@ -7,3 +8,11 @@ build-job:       # This job runs in the build stage, which runs first.
     - echo "Computing..."
     - sleep 5
     - echo "done!"
+
+deploy-job:
+  stage: deploy
+  variables:
+    UPSTREAM_REPO: $CI_PROJECT_PATH
+    UPSTREAM_BRANCH: $CI_COMMIT_REF_NAME
+    UPSTREAM_REF: $CI_COMMIT_SHA
+  trigger: root/dashboard

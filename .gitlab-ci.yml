@@ -4,10 +4,9 @@ stages:          # List of stages for jobs, and their order of execution
 
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
+  image: ruby:3.1
   script:
-    - echo "Computing..."
-    - sleep 5
-    - echo "done!"
+    - ruby --version
 
 #deploy-job:
 #  stage: deploy
